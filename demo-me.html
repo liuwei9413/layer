@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layer-更懂你的web弹窗解决方案</title>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script src="layer/layer.js"></script>
+
+<style>
+html{background-color:#E3E3E3; font-size:14px; color:#000; font-family:'微软雅黑'}
+a,a:hover{ text-decoration:none;}
+.demo-class .layui-layer-content { padding: 20px; color: #f00;}
+
+</style>
+</head>
+<body style="padding:50px;">
+
+<div id="con" style="width:300px; height:30px; line-height:30px; border:1px solid #f00; margin-left:100px; display:inline-block">我是弹窗内容div</div>
+
+<script>
+;!function(){
+
+//加载扩展模块
+layer.config({
+    extend: 'extend/layer.ext.js'
+});
+
+//页面一打开就执行，放入ready是为了layer所需配件（css、扩展模块）加载完毕
+layer.ready(function(){ 
+    // layer.open({
+    //     type: 1,
+    //     title: ['我是标题', 'font-size:20px; color:#f00'],  //标题
+    //     // content: '<h2 style="padding:20px;">弹窗内容</h2>'   
+    //     // content: $('#con'),
+    //     content: '我是弹窗内容',  //内容
+    //     skin: 'demo-class',        //样式类
+    //     closeBtn: 2,             //关闭按钮
+    //     shade: [0.8, '#393D49'],     //遮罩层
+    //     shadeClose: true,            // 是否点击遮罩关闭
+    //     // time: 5000                      //自动关闭所需毫秒
+    //     shift: 0,                    //动画 默认0 可选1-6
+    //     moveType: 1                 //拖拽模式
+    // });   
+
+    // layer.open({
+    //     content: '测试回调',
+    //     success: function(layero, index){
+    //         console.log(layero, index);
+    //     }
+    // });      
+
+    // layer.open({
+    // content: '测试回调',
+    //     yes: function(index, layero){
+    //         //do something
+    //         console.log('关闭');
+    //         layer.close(index); //如果设定了yes回调，需进行手工关闭
+    //     }
+    // });   
+
+    // layer.ready(function(){
+    //     layer.msg('很高兴一开场就见到你');
+    // });  
+
+    // var index = layer.load();
+    // var index = layer.load(2);
+    // //关闭
+    // setTimeout(function() {
+    //     layer.close(index); 
+    // }, 3000)
+
+
+    // layer.tips('只想提示地精准些', '#con');
+    // $('#con').on('click', function(){
+    //     var that = this;
+    //     layer.tips('只想提示地精准些', that, {tips: [4, '#f00']}); //在元素的事件回调体中，follow直接赋予this即可
+    // });
+
+    // layer.prompt(function(value, index, elem){
+    //     alert(value); //得到value
+    //     layer.close(index);
+    // });
+     
+    // layer.prompt({
+    //     formType: 2,
+    //     value: '初始值',
+    //     title: '请输入值'
+    // }, function(value, index, elem){
+    //     alert(value); //得到value
+    //     layer.close(index);
+    // });
+
+
+    //tab层
+    layer.tab({
+        area: ['600px', '300px'],
+        tab: [{
+            title: 'TAB1', 
+            content: '内容1'
+        }, {
+            title: 'TAB2', 
+            content: '内容2'
+        }, {
+            title: 'TAB3', 
+            content: '内容3'
+        }]
+    });                     
+
+});
+
+
+}();
+</script>
+</body>
+</html>
